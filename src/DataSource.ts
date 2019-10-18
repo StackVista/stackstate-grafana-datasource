@@ -2,15 +2,15 @@ import defaults from 'lodash/defaults';
 
 import { DataQueryRequest, DataQueryResponse, DataSourceApi, DataSourceInstanceSettings } from '@grafana/ui';
 
-import { MyQuery, MyDataSourceOptions, defaultQuery } from './types';
+import { StackStateQuery, StackStateDataSourceOptions, defaultQuery } from './types';
 import { MutableDataFrame, FieldType } from '@grafana/data';
 
-export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
-  constructor(instanceSettings: DataSourceInstanceSettings<MyDataSourceOptions>) {
+export class DataSource extends DataSourceApi<StackStateQuery, StackStateDataSourceOptions> {
+  constructor(instanceSettings: DataSourceInstanceSettings<StackStateDataSourceOptions>) {
     super(instanceSettings);
   }
 
-  query(options: DataQueryRequest<MyQuery>): Promise<DataQueryResponse> {
+  query(options: DataQueryRequest<StackStateQuery>): Promise<DataQueryResponse> {
     const { range } = options;
     const from = range.from.valueOf();
     const to = range.to.valueOf();
@@ -22,7 +22,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
         refId: query.refId,
         fields: [
           { name: 'Time', values: [from, to], type: FieldType.time },
-          { name: 'Value', values: [query.constant, query.constant], type: FieldType.number },
+          { name: 'Value', values: [0, 0], type: FieldType.number },
         ],
       });
     });

@@ -1,15 +1,15 @@
 {
   "type": "datasource",
-  "name": "Simple Data Source",
-  "id": "myorgid-simple-datasource",
+  "name": "StackState datasource",
+  "id": "stackstate-datasource",
   "metrics": true,
 
   "info": {
-    "description": "Simple Data Source",
+    "description": "StackState datasource",
     "author": {
-      "name": "Your Name"
+      "name": "StackState"
     },
-    "keywords": ["Simple"],
+    "keywords": ["StackState"],
     "logos": {
       "small": "img/logo.svg",
       "large": "img/logo.svg"

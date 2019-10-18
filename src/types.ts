@@ -1,17 +1,16 @@
 import { DataQuery, DataSourceJsonData } from '@grafana/ui';
 
-export interface MyQuery extends DataQuery {
-  queryText?: string;
-  constant: number;
+export interface StackStateQuery extends DataQuery {
+  queryText: string;
 }
 
-export const defaultQuery: Partial<MyQuery> = {
-  constant: 6.5,
+export const defaultQuery: Partial<StackStateQuery> = {
+  queryText: ""
 };
 
 /**
  * These are options configured for each DataSource instance
  */
-export interface MyDataSourceOptions extends DataSourceJsonData {
+export interface StackStateDataSourceOptions extends DataSourceJsonData {
   apiKey?: string;
 }
