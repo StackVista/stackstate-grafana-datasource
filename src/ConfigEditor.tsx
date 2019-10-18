@@ -11,11 +11,11 @@ interface State {}
 export class ConfigEditor extends PureComponent<Props, State> {
   componentDidMount() {}
 
-  onAPIKeyChange = (event: ChangeEvent<HTMLInputElement>) => {
+  onFieldChange = (fieldName: string) => (event: ChangeEvent<HTMLInputElement>) => {
     const { onOptionsChange, options } = this.props;
     const jsonData = {
       ...options.jsonData,
-      apiKey: event.target.value,
+      [fieldName]: event.target.value,
     };
     onOptionsChange({ ...options, jsonData });
   };
@@ -27,7 +27,9 @@ export class ConfigEditor extends PureComponent<Props, State> {
     return (
       <div className="gf-form-group">
         <div className="gf-form">
-          <FormField label="API Key" labelWidth={6} onChange={this.onAPIKeyChange} value={jsonData.apiKey || ''} placeholder="Your API key" />
+          <FormField label="Core API url" labelWidth={6} onChange={this.onFieldChange("coreApiUrl")} value={jsonData.coreApiUrl || ''} placeholder="URL of the StackState core API. Typically the base URL + /api." /> 
+          <FormField label="Username" labelWidth={6} onChange={this.onFieldChange("username")} value={jsonData.username || ''} />
+          <FormField label="Password" labelWidth={6} onChange={this.onFieldChange("password")} value={jsonData.password || ''} />
         </div>
       </div>
     );

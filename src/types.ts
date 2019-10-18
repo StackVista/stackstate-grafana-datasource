@@ -12,5 +12,7 @@ export const defaultQuery: Partial<StackStateQuery> = {
  * These are options configured for each DataSource instance
  */
 export interface StackStateDataSourceOptions extends DataSourceJsonData {
-  apiKey?: string;
+  coreApiUrl: string;
+  username?: string;
+  password?: string;
 }

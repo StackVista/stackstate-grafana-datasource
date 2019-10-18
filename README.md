@@ -1,5 +1,7 @@
-# Simple Data Source
+# StackState Grafana Datasource
 
-[![CircleCI](https://circleci.com/gh/grafana/simple-datasource/tree/master.svg?style=svg)](https://circleci.com/gh/grafana/simple-datasource/tree/master)
+A Grafana datasource for StackState. Only supports [Telemetry.query](https://docs.stackstate.com/develop/scripting/telemetry/) that return metrics.
 
-This is a stub to show how to create a basic data source plugin.
+# Status
+
+This repository was created during a tech rally in a day. It is by-far not production ready. 

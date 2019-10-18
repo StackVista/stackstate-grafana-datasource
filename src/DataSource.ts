@@ -6,7 +6,8 @@ import { StackStateQuery, StackStateDataSourceOptions, defaultQuery } from './ty
 import { MutableDataFrame, FieldType } from '@grafana/data';
 
 export class DataSource extends DataSourceApi<StackStateQuery, StackStateDataSourceOptions> {
-  constructor(instanceSettings: DataSourceInstanceSettings<StackStateDataSourceOptions>) {
+
+  constructor(private instanceSettings: DataSourceInstanceSettings<StackStateDataSourceOptions>) {
     super(instanceSettings);
   }
 
